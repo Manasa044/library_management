@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Library System</h1>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a href="#" onclick="showSection('addBookSection')">Add Book</a></li>
+                <li><a href="#" onclick="showSection('removeBookSection')">Remove Book</a></li>
+                <li><a href="#" onclick="showSection('allBooksSection')">See All Books</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="addBookSection" class="section">
+        <form>
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" class="form-control" id="title" required>
+            </div>
+            <div class="form-group">
+                <label for="author">Author:</label>
+                <input type="text" class="form-control" id="author" required>
+            </div>
+            <div class="form-group">
+                <label for="publisher">Publisher:</label>
+                <input type="text" class="form-control" id="publisher" required>
+            </div>
+            <div class="form-group">
+                <label for="isbn">International Standard Book Number:</label>
+                <input type="text" class="form-control" id="isbn" required>
+            </div>
+            <div class="form-group">
+                <label for="copies">Number of Copies:</label>
+                <input type="text" class="form-control" id="copies" required>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="addBook()">Add Book</button>
+        </form>
+    </div>
+
+    <div id="removeBookSection" class="section" style="display:none;">
+        <form>
+            <div class="form-group">
+                <label for="removeIsbn">Enter ISBN to Remove:</label>
+                <input type="text" class="form-control" id="removeIsbn" required>
+            </div>
+            <button type="button" class="btn btn-danger" onclick="removeBook()">Remove Book</button>
+        </form>
+    </div>
+
+    <div id="allBooksSection" class="section" style="display:none;">
+        <form>
+            <div class="form-group">
+                <label for="search">Search:</label>
+                <input type="text" class="form-control" id="search" onkeyup="searchBook()">
+            </div>
+        </form>
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Publisher</th>
+                    <th>ISBN</th>
+                    <th>Copies Available</th>
+                </tr>
+            </thead>
+            <tbody id="bookList">
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
